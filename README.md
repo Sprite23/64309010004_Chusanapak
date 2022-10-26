@@ -7,3 +7,7 @@
 ###
 
 <h2 align="center">ของ นายชุษณปักษ์ ฟองมณี นักศึกษาแผนกเทคโนโลยีสารสนเทศ <br>ชั้นปวส.2 เลขที่ 1 กลุ่มที่ 4</h2>
+
+###
+
+<div align="center"><img src="https://spotify-github-profile.vercel.app/api/view?uid=x8y5pbcf4lqyx53c1r12fxnxw&cover_image=true&theme=natemoo-re&show_offline=false&bar_color=53b14f&bar_color_cover=true" /></div>  
