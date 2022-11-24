@@ -83,15 +83,16 @@ for(empsum=0;empsum<emp.length;empsum++){
     sumsalary = emp[empsum].salary*12;
     totalsalary = sumsalary+sumbonus
     salaryforyear += totalsalary;
-    if(sumsalary<200000){
-    }else if(sumsalary>=200000&&sumsalary<=500000){
-        tax = sumsalary*0.07;
+    if(totalsalary<200000){
+        tax = 0;
+    }else if(totalsalary>200000&&totalsalary<500000){
+        tax = totalsalary*0.07;
         sumtax += tax;
-    }else if(sumsalary>=500000&&sumsalary<=1000000){
-        tax = sumsalary*0.20;
+    }else if(totalsalary>500000&&totalsalary<1000000){
+        tax = totalsalary*0.20;
         sumtax += tax;
-    }else if(sumsalary>1000000){
-        tax = sumsalary*0.30;
+    }else if(totalsalary>1000000){
+        tax = totalsalary*0.30;
         sumtax += tax;
     }
     console.log(emp[empsum].Name,"มีรายได้สุทธิต่อปี =",totalsalary,"บาท","ต้องจ่ายภาษี",tax,"บาท","ได้โบนัส",Math.ceil(sumbonus));
