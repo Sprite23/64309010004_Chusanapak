@@ -1,13 +1,23 @@
-<img align="right" height="300" src="https://i.pinimg.com/originals/55/19/1c/55191c49fa3ed741f93f27f7d7e6672f.gif"  />
+<div align="center">
+<img src="https://iili.io/Hf0SmOv.gif" align="center" style="width: 100%" />
+</div>  
+  
 
-###
+### <div align="center">ฆ่าได้ฆ่า ไม่งั้นก็โดนฆ่า - Wednesday Addams</div>  
+  
 
-<h4 align="center">Repo นี้เป็นส่วนหนึ่งของรายวิชา 30901-2118 พื้นฐานและการใช้งาน JSON</h4>
+<br/>  
 
-###
+<div align="center">  
+<a href="https://wordpress.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/wordpress.png" alt="WordPress" height="50" /></a>  
+<a href="https://getbootstrap.com/docs/3.4/javascript/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/bootstrap-plain.svg" alt="Bootstrap" height="50" /></a>  
+<a href="https://www.adobe.com/in/products/illustrator.html" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/adobe_illustrator-icon.svg" alt="Illustrator" height="50" /></a>  
+<a href="https://www.adobe.com/in/products/photoshop.html" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/photoshop-plain.svg" alt="Photoshop" height="50" /></a>  
+<a href="https://www.adobe.com/products/photoshop-lightroom.html" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/lightroom.png" alt="Lightroom" height="50" /></a>  
+<a href="https://www.adobe.com/in/products/aftereffects.html" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/aftereffects.png" alt="After Effects" height="50" /></a>  
+</div>  
 
-<h2 align="center">ของ นายชุษณปักษ์ ฟองมณี นักศึกษาแผนกเทคโนโลยีสารสนเทศ <br>ชั้นปวส.2 เลขที่ 1 กลุ่มที่ 4</h2>
+<br/>  
 
-###
-
-<div align="center"><img src="https://spotify-github-profile.vercel.app/api/view?uid=x8y5pbcf4lqyx53c1r12fxnxw&cover_image=true&theme=natemoo-re&show_offline=false&bar_color=53b14f&bar_color_cover=true" /></div>  
+<div align="center"><img src="https://spotify-github-profile.vercel.app/api/view?uid=x8y5pbcf4lqyx53c1r12fxnxw&cover_image=true&theme=default&show_offline=false&background_color=160e23&bar_color_cover=true" /></div>
+<br />
