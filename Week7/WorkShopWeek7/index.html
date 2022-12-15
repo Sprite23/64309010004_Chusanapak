@@ -20,24 +20,31 @@
 </style>
 </head>
 
-<body>
-<div class="container-fluid" id="display"></div>
+<body onload="GetAjax()">
+<div class="container" id="display"></div>
+<center><div class="container">
+  <button id="prvbtn" class="btn btn-outline-dark" onclick="prv()">ก่อนหน้า</button>
+  <button id="nxtbtn" class="btn btn-outline-dark" onclick="next()">ถัดไป</button>
+
+</div>
+</center>
 <script>
+    document.getElementById("prvbtn").disabled = true;
     let xttp = new XMLHttpRequest();
+    let i = 0;
+    function GetAjax(){
     xttp.open("GET","http://localhost:3000/book",true);
     xttp.send();
     xttp.onload = function(){
         let obj = JSON.parse(this.responseText);
         let temp = '';
-        for (let x in obj) {
-          temp += 
-          '<tr><td>' + obj[x].title + '</td>' +
-          '<td>' + obj[x].description + '</td>' +
-          '<td>' + obj[x].author + '</td>' +
-          '<td>' + obj[x].year + '</td>' +
-          '<td>' + obj[x].price + '</td>' +
-          '<td><img src="./img/' + obj[x].picture + '" width="50px""></img></td></tr>';
-        }
+          temp = 
+          '<tr><td>' + obj[i].title + '</td>' +
+          '<td>' + obj[i].description + '</td>' +
+          '<td>' + obj[i].author + '</td>' +
+          '<td>' + obj[i].year + '</td>' +
+          '<td>' + obj[i].price + '</td>' +
+          '<td><img src="./img/' + obj[i].picture + '" width="50px""></img></td></tr>';
         document.getElementById('display').innerHTML  = '<table class="table-dark table table-striped table-hover">'+
           '<thead>'+
             '<tr>'+
@@ -48,8 +55,27 @@
               '<th scope="col">Price</th>'+
               '<th scope="col">Picture</th>'+
               '</tr>'+
-              '</thead>'+temp+'</table>';
+              '</thead>'+temp+'</table>';    
+
 }
+    }
+   
+function next(){
+  i++;
+  if (i == 18) {
+    document.getElementById('nxtbtn').disabled = true;
+  }
+  document.getElementById('prvbtn').disabled = false;
+  GetAjax();
+ }
+ function prv(){
+  i--;
+  if (i == 0) {
+    document.getElementById('prvbtn').disabled = true;
+  }
+  document.getElementById('nxtbtn').disabled = false;
+  GetAjax();
+ }
 </script>
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
