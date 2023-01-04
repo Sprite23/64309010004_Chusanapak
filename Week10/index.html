@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
+    
+    <style>
+@font-face {
+  font-family: "Lineseed";
+  src: url(https://cdn.statically.io/gh/Sprite23/64309010004_Chusanapak/main/Fonts/LineSeed/WOFF2/LINESeedSansTH_W_Rg.woff2);
+}
+body .intro-lead-in {
+  font-family: "Lineseed" !important;
+}
+.text-line
+{
+  font-family: "Lineseed" !important;
+}
+#display{
+  padding-top:2em;
+}
+</style>
+</head>
+
+<body onload="GetAjax()">
+<div class="container" id="display"></div>
+<center><div class="container">
+  <br>
+  <div class="btn-group" role="group" style="text-align: center;border-color: var(--bs-border-color-translucent);">
+  <button class="btn btn-primary" id="prvbtn" type="button" onclick="prv()" style="background: var(--bs-red);border-style: none;border-color: var(--bs-blue);">ก่อนหน้า</button>
+  <button class="btn btn-primary"  id="nxtbtn" type="button" onclick="next()" style="background: var(--bs-danger);border-style: none;">ถัดไป</button></div>
+
+</div>
+</center>
+<script>
+    document.getElementById("prvbtn").disabled = true;
+    let xttp = new XMLHttpRequest();
+    let i = 0;
+    let obj;
+    function GetAjax(){
+    xttp.open("GET","http://localhost:3000/webblog",true);
+    xttp.send();
+    xttp.onload = function(){
+        obj = JSON.parse(this.responseText);
+        let temp = '';
+          temp = 
+          `<header class="masthead" style="background: linear-gradient(-7deg, black, rgba(255,255,255,0.18)), url(`+obj[i].PostFeaturedImage+`); height:80vh; background-repeat:no-repeat; background-size:cover;">
+            <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in" id="text-review"><span style="padding:5px;" >`+obj[i].PostTitle+`</span></div>
+                <div class="row">
+                    <div class="col-xl-2" style="background: rgba(220,53,69,0.42);">
+                        <p><i class="fi fi-sr-calendar-clock"></i>&emsp;`+obj[i].PostDate+`</p>
+                    </div>
+                    <div class="col" style="background: rgba(220,53,69,0.42);">
+                        <p><i class="fi fi-sr-clock-three"></i>&emsp;`+obj[i].PostTime+`</p>
+                    </div>
+                    <div class="col-xl-3" style="background: rgba(220,53,69,0.42);">
+                        <p><i class="fi fi-sr-folder"></i>&emsp;`+obj[i].PostCategory+`</p>
+                    </div>
+                    <div class="col-xl-4" style="background: rgba(220,53,69,0.42);">
+                        <p><i class="fi fi-sr-tags"></i>&emsp;`+obj[i].PostTag+`</p>
+                    </div>
+                    <div class="col" style="background: rgba(220,53,69,0.42);">
+                        <p><i class="fi fi-ss-user"></i>&emsp;`+obj[i].PostAuthor+`</p>
+                    </div>
+                </div>
+                <div class="row"><hr></div>
+                <div ><span style="font-size: 20px;" class="text-line">`+obj[i].PostContent+`</span></div>
+            </div>
+            
+        </div>
+    </header>`
+        document.getElementById('display').innerHTML  = temp; 
+
+}
+    }
+   
+function next(){
+  i++;
+  if (i == obj.length-1) {
+    document.getElementById('nxtbtn').disabled = true;
+  }
+  document.getElementById('prvbtn').disabled = false;
+  GetAjax();
+ }
+ function prv(){
+  i--;
+  if (i == 0) {
+    document.getElementById('prvbtn').disabled = true;
+  }
+  document.getElementById('nxtbtn').disabled = false;
+  GetAjax();
+ }
+</script>
+  <!-- Bootstrap JavaScript Libraries -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+<script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js" integrity="sha512-rpLlll167T5LJHwp0waJCh3ZRf7pO6IT1+LZOhAyP6phAirwchClbTZV3iqL3BMrVxIYRbzGTpli4rfxsCK6Vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>

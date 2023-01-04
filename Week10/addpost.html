@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
+    
+    <style>
+@font-face {
+  font-family: "Lineseed";
+  src: url(https://cdn.statically.io/gh/Sprite23/64309010004_Chusanapak/main/Fonts/LineSeed/WOFF2/LINESeedSansTH_W_Rg.woff2);
+}
+label,span,h1,.form-control{
+    font-family: "Lineseed" !important;
+}
+
+#display{
+  padding-top:2em;
+}
+</style>
+</head>
+
+<body onload="GetAjax()">
+    <div class="container" id="display"></div>
+    <div class="container">
+        <form id="myForm">
+            <div class="row">
+                <div class="col-12">
+                    <label for="" class="form-label">ชื่อเรื่อง</label>
+                    <input type="text" name="" class="form-control" id="PostTitle">
+                </div>
+                <div class="col-12">
+                    <label for="" class="form-label">เนื้อหา</label>
+                    <textarea type="number" name="" class="form-control" id="PostContent"></textarea>
+                </div>
+
+                <div class="col-6">
+                    <label for="" class="form-label">เรื่องย่อ</label>
+                    <input type="text" name="" class="form-control" id="PostDescription">
+                </div>
+                <div class="col-6">
+                    <label for="" class="form-label">นามปากกา</label>
+                    <input type="text" name="" class="form-control" id="PostAuthor">
+                </div>
+
+                <div class="col-6">
+                    <label for="" class="form-label">วันที่โพสต์</label>
+                    <input type="date" name="" class="form-control" id="PostDate">
+                </div>
+                <div class="col-6">
+                    <label for="" class="form-label">เวลาโพสต์</label>
+                    <input type="time" name="" class="form-control" id="PostTime">
+                </div>
+                <div class="col-12">
+                    <label for="" class="form-label">แท็ก</label>
+                    <textarea type="text" name="" class="form-control" id="PostTag"></textarea>
+                </div>
+                <div class="col">
+                    <label for="" class="form-label">หมวดหมู่</label>
+                    <input type="text" name="" class="form-control" id="PostCategory">
+                </div>
+                <div class="col">
+                    <label for="" class="form-label">ภาพประจำเรื่อง</label>
+                    <input type="text" name="" class="form-control" id="PostFeaturedImage">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input class="btn btn-primary" onclick="addMovie()" type="button" value="AddMovie">
+                </div>
+            </div>
+    </div>
+    </form>
+    </div>
+
+    <script>
+ function addMovie(){
+        let obj = {
+            "PostID":'',
+            "PostTitle": document.forms['myForm']['PostTitle'].value,
+            "PostContent":document.forms['myForm']['PostContent'].value, 
+            "PostDescription":document.forms['myForm']['PostDescription'].value, 
+            "PostAuthor":document.forms['myForm']['PostAuthor'].value, 
+            "PostDate":document.forms['myForm']['PostDate'].value,
+            "PostTime":document.forms['myForm']['PostTime'].value,
+            "PostTag":document.forms['myForm']['PostTag'].value,
+            "PostCategory":document.forms['myForm']['PostCategory'].value,
+            "PostFeaturedImage":document.forms['myForm']['PostFeaturedImage'].value
+        }
+        console.log(obj);
+        let text =JSON.stringify(obj);
+        console.log("Text",text);
+
+        let xhttp = new XMLHttpRequest();
+        xhttp.open("POST","http://localhost:3000/webblog");
+        xhttp.setRequestHeader("Content-Type","application/json");
+        xhttp.send(text);
+    } 
+    </script>
+<script>
+    let xttp = new XMLHttpRequest();
+    let i = 0;
+    let obj;
+    function GetAjax(){
+    xttp.open("GET","http://localhost:3000/webblog",true);
+    xttp.send();
+    xttp.onload = function(){
+        obj = JSON.parse(this.responseText);
+        length = obj.length;
+        var lastobj = obj[obj.length-1]['PostID'];
+        var lastauthor = obj[obj.length-1]['PostAuthor'];
+        var lastdate = obj[obj.length-1]['PostDate'];
+        let temp = '';
+          temp = 
+          ` <div id="wrapper">
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <div style="text-align: center;">
+                    <h1 class="text-dark mb-0" style="padding: 18px;">สร้างโพสต์</h1>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-start-warning py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase text-warning fw-bold text-xs mb-1"><span>โพสต์ทั้งหมด</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span>`+length+`</span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-comments fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-start-warning py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase text-warning fw-bold text-xs mb-1"><span>ID ของโพสต์ล่าสุด</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span>`+lastobj+`</span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-comments fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-start-warning py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase text-warning fw-bold text-xs mb-1"><span>วันโพสต์ล่าสุด</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span>`+lastdate+`</span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-comments fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-start-warning py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase text-warning fw-bold text-xs mb-1"><span>ผู้โพสต์ล่าสุด</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span>`+lastauthor+`</span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-comments fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>`
+        document.getElementById('display').innerHTML  = temp; 
+
+}
+    }
+   
+function next(){
+  i++;
+  if (i == obj.length-1) {
+    document.getElementById('nxtbtn').disabled = true;
+  }
+  document.getElementById('prvbtn').disabled = false;
+  GetAjax();
+ }
+ function prv(){
+  i--;
+  if (i == 0) {
+    document.getElementById('prvbtn').disabled = true;
+  }
+  document.getElementById('nxtbtn').disabled = false;
+  GetAjax();
+ }
+</script>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
