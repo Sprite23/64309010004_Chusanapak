@@ -116,7 +116,6 @@ label,span,h1,.form-control{
     xttp.send();
     xttp.onload = function(){
         obj = JSON.parse(this.responseText);
-        length = obj.length;
         var lastobj = obj[obj.length-1]['PostID'];
         var lastauthor = obj[obj.length-1]['PostAuthor'];
         var lastdate = obj[obj.length-1]['PostDate'];
@@ -136,7 +135,7 @@ label,span,h1,.form-control{
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
                                             <div class="text-uppercase text-warning fw-bold text-xs mb-1"><span>โพสต์ทั้งหมด</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span>`+length+`</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span>`+obj.length+`</span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-comments fa-2x text-gray-300"></i></div>
                                     </div>
