@@ -40,7 +40,6 @@ body .intro-lead-in {
   <div class="btn-group" role="group" style="text-align: center;border-color: var(--bs-border-color-translucent);">
   <button class="btn btn-primary" id="prvbtn" type="button" onclick="prv()" style="background: var(--bs-primary);border-style: none;border-color: var(--bs-blue);">ก่อนหน้า</button>
   <button class="btn btn-primary"  id="nxtbtn" type="button" onclick="next()" style="background: var(--bs-primary);border-style: none;">ถัดไป</button></div>
-
 </div>
 </center>
 <script>
@@ -55,7 +54,7 @@ body .intro-lead-in {
         obj = JSON.parse(this.responseText);
         let temp = '';
           temp = 
-          `<header class="masthead" style="background: linear-gradient(-7deg, black, rgba(255,255,255,0.18)), url(`+obj[i].PostFeaturedImage+`); height:80vh; background-repeat:no-repeat; background-size:cover;">
+          `<header class="masthead" style="background: linear-gradient(-7deg, black, rgba(255,255,255,0.18)), url(`+obj[i].PostFeaturedImage+`); height:100vh; background-repeat:no-repeat; background-size:cover;">
             <div class="container">
             <div class="intro-text">
                 <div class="intro-lead-in" id="text-review"><span style="padding:5px;" >`+obj[i].PostTitle+`</span></div>
