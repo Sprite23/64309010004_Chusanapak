@@ -1,0 +1,185 @@
+{
+  "peoples_male": [
+    {
+      "YEAR": 2555,
+      "SEX": "ชาย",
+      "VALUE": 3625513,
+      "UNIT": "คน",
+      "VALUE_PERCENT": 11.44,
+      "UNIT_PERCENT": "ร้อยละ",
+      "SOURCE": "กรมการปกครอง กระทรวงมหาดไทย"
+    },
+    {
+      "YEAR": 2556,
+      "SEX": "ชาย",
+      "VALUE": 3871957,
+      "UNIT": "คน",
+      "VALUE_PERCENT": 12.16,
+      "UNIT_PERCENT": "ร้อยละ",
+      "SOURCE": "กรมการปกครอง กระทรวงมหาดไทย"
+    },
+    {
+      "YEAR": 2557,
+      "SEX": "ชาย",
+      "VALUE": 4036987,
+      "UNIT": "คน",
+      "VALUE_PERCENT": 12.62,
+      "UNIT_PERCENT": "ร้อยละ",
+      "SOURCE": "กรมการปกครอง กระทรวงมหาดไทย"
+    },
+    {
+      "YEAR": 2558,
+      "SEX": "ชาย",
+      "VALUE": 4188623,
+      "UNIT": "คน",
+      "VALUE_PERCENT": 12.98,
+      "UNIT_PERCENT": "ร้อยละ",
+      "SOURCE": "กรมการปกครอง กระทรวงมหาดไทย"
+    },
+    {
+      "YEAR": 2559,
+      "SEX": "ชาย",
+      "VALUE": 4340137,
+      "UNIT": "คน",
+      "VALUE_PERCENT": 13.41,
+      "UNIT_PERCENT": "ร้อยละ",
+      "SOURCE": "กรมการปกครอง กระทรวงมหาดไทย"
+    },
+    {
+      "YEAR": 2560,
+      "SEX": "ชาย",
+      "VALUE": 4524021,
+      "UNIT": "คน",
+      "VALUE_PERCENT": 13.94,
+      "UNIT_PERCENT": "ร้อยละ",
+      "SOURCE": "กรมการปกครอง กระทรวงมหาดไทย"
+    },
+    {
+      "YEAR": 2561,
+      "SEX": "ชาย",
+      "VALUE": 4715598,
+      "UNIT": "คน",
+      "VALUE_PERCENT": 14.48,
+      "UNIT_PERCENT": "ร้อยละ",
+      "SOURCE": "กรมการปกครอง กระทรวงมหาดไทย"
+    },
+    {
+      "YEAR": 2562,
+      "SEX": "ชาย",
+      "VALUE": 4920297,
+      "UNIT": "คน",
+      "VALUE_PERCENT": 15.09,
+      "UNIT_PERCENT": "ร้อยละ",
+      "SOURCE": "กรมการปกครอง กระทรวงมหาดไทย"
+    },
+    {
+      "YEAR": 2563,
+      "SEX": "ชาย",
+      "VALUE": 5132901,
+      "UNIT": "คน",
+      "VALUE_PERCENT": 15.85,
+      "UNIT_PERCENT": "ร้อยละ",
+      "SOURCE": "กรมการปกครอง กระทรวงมหาดไทย"
+    },
+    {
+      "YEAR": 2564,
+      "SEX": "ชาย",
+      "VALUE": 5320113,
+      "UNIT": "คน",
+      "VALUE_PERCENT": 16.45,
+      "UNIT_PERCENT": "ร้อยละ",
+      "SOURCE": "กรมการปกครอง กระทรวงมหาดไทย"
+    }],
+    "peoples_female": [
+    {
+      "YEAR": 2555,
+      "SEX": "หญิง",
+      "VALUE": 4545396,
+      "UNIT": "คน",
+      "VALUE_PERCENT": 13.88,
+      "UNIT_PERCENT": "ร้อยละ",
+      "SOURCE": "กรมการปกครอง กระทรวงมหาดไทย"
+    },
+    {
+      "YEAR": 2556,
+      "SEX": "หญิง",
+      "VALUE": 4862144,
+      "UNIT": "คน",
+      "VALUE_PERCENT": 14.76,
+      "UNIT_PERCENT": "ร้อยละ",
+      "SOURCE": "กรมการปกครอง กระทรวงมหาดไทย"
+    },
+    {
+      "YEAR": 2557,
+      "SEX": "หญิง",
+      "VALUE": 5073767,
+      "UNIT": "คน",
+      "VALUE_PERCENT": 15.32,
+      "UNIT_PERCENT": "ร้อยละ",
+      "SOURCE": "กรมการปกครอง กระทรวงมหาดไทย"
+    },
+    {
+      "YEAR": 2558,
+      "SEX": "หญิง",
+      "VALUE": 5267154,
+      "UNIT": "คน",
+      "VALUE_PERCENT": 15.75,
+      "UNIT_PERCENT": "ร้อยละ",
+      "SOURCE": "กรมการปกครอง กระทรวงมหาดไทย"
+    },
+    {
+      "YEAR": 2559,
+      "SEX": "หญิง",
+      "VALUE": 5461943,
+      "UNIT": "คน",
+      "VALUE_PERCENT": 16.27,
+      "UNIT_PERCENT": "ร้อยละ",
+      "SOURCE": "กรมการปกครอง กระทรวงมหาดไทย"
+    },
+    {
+      "YEAR": 2560,
+      "SEX": "หญิง",
+      "VALUE": 5701301,
+      "UNIT": "คน",
+      "VALUE_PERCENT": 16.91,
+      "UNIT_PERCENT": "ร้อยละ",
+      "SOURCE": "กรมการปกครอง กระทรวงมหาดไทย"
+    },
+    {
+      "YEAR": 2561,
+      "SEX": "หญิง",
+      "VALUE": 5951205,
+      "UNIT": "คน",
+      "VALUE_PERCENT": 17.58,
+      "UNIT_PERCENT": "ร้อยละ",
+      "SOURCE": "กรมการปกครอง กระทรวงมหาดไทย"
+    },
+    {
+      "YEAR": 2562,
+      "SEX": "หญิง",
+      "VALUE": 6215762,
+      "UNIT": "คน",
+      "VALUE_PERCENT": 18.31,
+      "UNIT_PERCENT": "ร้อยละ",
+      "SOURCE": "กรมการปกครอง กระทรวงมหาดไทย"
+    },
+    {
+      "YEAR": 2563,
+      "SEX": "หญิง",
+      "VALUE": 6500287,
+      "UNIT": "คน",
+      "VALUE_PERCENT": 19.23,
+      "UNIT_PERCENT": "ร้อยละ",
+      "SOURCE": "กรมการปกครอง กระทรวงมหาดไทย"
+    },
+    {
+      "YEAR": 2564,
+      "SEX": "หญิง",
+      "VALUE": 6751724,
+      "UNIT": "คน",
+      "VALUE_PERCENT": 19.88,
+      "UNIT_PERCENT": "ร้อยละ",
+      "SOURCE": "กรมการปกครอง กระทรวงมหาดไทย"
+    }
+  ]
+}

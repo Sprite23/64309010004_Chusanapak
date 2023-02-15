@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+  <style>
+    @font-face {
+      font-family: "Lineseed";
+      src: url(https://cdn.statically.io/gh/Sprite23/64309010004_Chusanapak/main/Fonts/LineSeed/WOFF2/LINESeedSansTH_W_Rg.woff2);
+    }
+    h1{
+      font-family: "Lineseed" !important;
+    }
+    </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12" style="text-align: center;">
+        <br>
+        <h1>สัดส่วนประชากรอายุ 60 ปีขึ้นไป</h1>
+      </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+          <div class="card">
+              <div class="card-body">
+                  <canvas id="lineChart"></canvas>
+              </div>
+          </div>
+      </div>
+     </div> 
+     <div class="row">
+      <div class="col-12" style="text-align: center;">
+        <br>
+        <h1>สัดส่วนประชากรอายุ 60 ปีขึ้นไป แยกตามเพศ</h1>
+      </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <canvas id="maleChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+          <div class="card">
+              <div class="card-body">
+                  <canvas id="femaleChart"></canvas>
+              </div>
+          </div>
+      </div>
+     </div>     
+</div>
+ <script>
+    let xttp = new XMLHttpRequest();
+    
+    xttp.open("GET","data.json",true);
+    xttp.send();
+    xttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200){
+        //console.log(JSON.parse(this.responseText));
+        const datasets = JSON.parse(this.responseText);
+        console.log(datasets);
+        const labelsyear = datasets.peoples_male.map(function(index){
+          return index.YEAR;
+        });
+        const VALUE = datasets.peoples_male.map(function(index){
+          return index.VALUE;
+        });
+          const sex = datasets.peoples_male.map(function(index){
+          return index.SEX ;
+        });
+        const VALUE_PERCENT = datasets.peoples_male.map(function(index){
+          return index.VALUE_PERCENT;
+        });
+        const VALUE_female = datasets.peoples_female.map(function(index){
+          return index.VALUE;
+        });
+          const sexfemale = datasets.peoples_female.map(function(index){
+          return index.SEX ;
+        });
+        const VALUE_PERCENT_female = datasets.peoples_female.map(function(index){
+          return index.VALUE_PERCENT;
+        });
+        // setup 
+        const data = {
+        labels: labelsyear,
+        datasets: [{
+        label: 'ชาย',
+        data: VALUE,
+        backgroundColor: [
+          'rgba(255, 26, 104, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 26, 104, 1)',
+        ],
+        borderWidth: 1
+      },{
+        label: 'หญิง',
+        data: VALUE_female,
+        backgroundColor: [
+          'rgba(153, 102, 255, 0.2)',
+        ],
+        borderColor: [
+          'rgba(153, 102, 255, 1)',
+        ],
+        borderWidth: 1
+      }]
+      };
+      const linedata = {
+        labels: labelsyear,
+        datasets: [{
+        label: 'ชาย',
+        data: VALUE_PERCENT,
+        backgroundColor: [
+          'rgba(255, 26, 104, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 26, 104, 1)',
+        ],
+        borderWidth: 1
+      },{
+        label: 'หญิง',
+        data: VALUE_PERCENT_female,
+        backgroundColor: [
+          'rgba(153, 102, 255, 0.2)',
+        ],
+        borderColor: [
+          'rgba(153, 102, 255, 1)',
+        ],
+        borderWidth: 1
+      }]
+      };
+      const malepie = {
+  labels: labelsyear,
+  datasets: [{
+    label: 'จำนวน',
+    data: VALUE,
+    backgroundColor: [
+      '#590d22',
+      '#800f2f',
+      '#a4133c',
+      '#c9184a',
+      '#ff4d6d',
+      '#ff758f',
+      '#ff8fa3',
+      '#ffb3c1',
+      '#ffccd5',
+      '#fff0f3'
+    ],
+    hoverOffset: 4
+  }]
+};
+const femalepie = {
+  labels: labelsyear,
+  datasets: [{
+    label: 'จำนวน',
+    data: VALUE_female,
+    backgroundColor: [
+      '#f72585',
+      '#b5179e',
+      '#7209b7',
+      '#560bad',
+      '#480ca8',
+      '#3a0ca3',
+      '#3f37c9',
+      '#4361ee',
+      '#4895ef',
+      '#4cc9f0'
+    ],
+    hoverOffset: 4
+  }]
+};
+      // config 
+      const config = {
+      type: 'bar',
+      data,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+    const config2 = {
+      type: 'line',
+      data: linedata,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+    const config3 = {
+      type: 'pie',
+      data: malepie,
+      options: {
+        plugins: {
+            title: {
+                display: true,
+                text: 'เพศชาย'
+            }
+        }
+    }
+    };
+    const config4 = {
+      type: 'pie',
+      data: femalepie,
+      options: {
+        plugins: {
+            title: {
+                display: true,
+                text: 'เพศหญิง'
+            }
+        }
+    }
+     
+    };
+
+    // render init block
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+    const myChart2 = new Chart(
+      document.getElementById('lineChart'),
+      config2
+    );
+    const myChart3 = new Chart(
+      document.getElementById('maleChart'),
+      config3
+    );
+    const myChart4 = new Chart(
+      document.getElementById('femaleChart'),
+      config4
+    );
+      }
+    }
+
+    
+ </script>
+</body>
+</html>
